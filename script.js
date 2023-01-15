@@ -15,23 +15,23 @@ var eventInput = $('#event');
 
 function saveToStorage() {
   
-  var passText =eventInput.value;
+  var passText =eventInput[0].value;
   localStorage.setItem("passText", JSON.stringify(passText));
 };
 
-// function getFromStorage() {
-//   var eventOutput = JSON.parse(localStorage.getItem("passText"));
-//   if (eventOutput !== null) {
-//   document.getElementById('event').innerHTML = eventOutput.textInput;
-//   } else {
-//     return;
-//   }
-// };
+function getFromStorage() {
+  var eventOutput = JSON.parse(localStorage.getItem("passText"));
+  if (eventOutput !== null) {
+  document.getElementById('event').innerHTML = eventOutput.textInput;
+  } else {
+    return;
+  }
+};
 
 
     $('#btnX').on("click", function(){
       saveToStorage();
-      // getFromStorage();
+      getFromStorage();
         console.log("rad");
     });
  
@@ -62,3 +62,10 @@ const dayJsObject = dayjs();
 // console.log(dayJsObject.format("D"))
 $("#currentDay").html(dayJsObject.format("dddd YYYY-MM-DD HH:mm:ss"))
 });
+
+// $('#btnX').on("click", function(event){
+//   console.log(event);
+//   saveToStorage();
+//   // getFromStorage();
+//     console.log("rad");
+// });
