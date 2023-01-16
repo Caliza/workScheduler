@@ -10,8 +10,14 @@ $(function () {
   // var inText =document.getElementsByClassName("description");
   // var saveBtn = document.getElementsByClassName("saveBtn");
 
-  var eventInput = $('.description');
-  // var btnClick = $('#btnB');
+  var eventInput = $("#event");
+  // var eventInput = document.querySelectorAll(".description");
+  
+
+//   eventInput.forEach(()=>{
+//     dataFromLocalStorage = localStorage.getItem("key")
+//     $(this).textContent = dataFromLocalStorage
+// })
 
   function saveToStorage() {
 
@@ -34,7 +40,7 @@ $(function () {
     console.log("rad");
   });
 
-
+  
   // use the id in the containing time-block as a key to save the user input in --Hint: grab value from time block/id
 
   // local storage. HINT: What does `this` reference in the click listener --Option 1: store each timeBlock as seperate key(a,b,c,) value pair. --Option 2 store array,
