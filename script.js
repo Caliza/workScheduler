@@ -9,36 +9,52 @@ $(function () {
   //$. btnEL = document.getElementById("#btn");
   // var inText =document.getElementsByClassName("description");
   // var saveBtn = document.getElementsByClassName("saveBtn");
-
-  var eventInput = $("#event");
-  // var eventInput = document.querySelectorAll(".description");
-  
-
+// var eventInput = document.querySelectorAll(".description");
 //   eventInput.forEach(()=>{
 //     dataFromLocalStorage = localStorage.getItem("key")
 //     $(this).textContent = dataFromLocalStorage
 // })
 
-  function saveToStorage() {
+//
+var value = $(this)
+      .siblings('.description')
+      .val();
+    var time = $(this)
+      .parent()
+      .attr('#event');
 
-    var eventText = eventInput[0].value;
-    localStorage.setItem("eventText", JSON.stringify(eventText));
-  };
+localStorage.getItem(time, value);
 
-  function getFromStorage() {
-    var eventOutput = localStorage.getItem("eventText");
-    if (eventOutput !== null) {
-      document.getElementById('event').innerHTML = eventOutput;
-    } else {
-      return;
-    }
-  };
-  getFromStorage();
+$(document).ready(function() {
+$('.saveBtn').on('click', function() {
+  localStorage.setItem(time, value);
+  console.log("rad");
+})
 
-  $('#btnX').on("click", function (event) {
-    saveToStorage(event);
-    console.log("rad");
-  });
+  // Save!!! 
+  // var eventInput = $("#event");
+
+  // function saveToStorage() {
+
+  //   var eventText = eventInput[0].value;
+  //   localStorage.setItem("eventText", JSON.stringify(eventText));
+  // };
+
+  // function getFromStorage() {
+  //   var eventOutput = localStorage.getItem("eventText");
+  //   if (eventOutput !== null) {
+  //     document.getElementById('event').innerHTML = eventOutput;
+  //   } else {
+  //     return;
+  //   }
+  // };
+  // getFromStorage();
+
+  // $('#btnX').on("click", function (event) {
+  //   saveToStorage(event);
+  //   console.log("rad");
+  // }); 
+  //Save!!!
 
   
   // use the id in the containing time-block as a key to save the user input in --Hint: grab value from time block/id
@@ -67,7 +83,7 @@ $(function () {
   // console.log(dayJsObject.format("D"))
   $("#currentDay").html(dayJsObject.format("dddd YYYY-MM-DD HH:mm:ss"))
 });
-
+});
 // $('#btnX').on("click", function(event){
 //   console.log(event);
 //   saveToStorage();
