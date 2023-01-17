@@ -5,33 +5,10 @@
 // text9, text 10, etc
 
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should --Hint: assign eventListener to container block
-  //$. btnEL = document.getElementById("#btn");
-  // var inText =document.getElementsByClassName("description");
-  // var saveBtn = document.getElementsByClassName("saveBtn");
-  // var eventInput = document.querySelectorAll(".description");
-  //   eventInput.forEach(()=>{
-  //     dataFromLocalStorage = localStorage.getItem("key")
-  //     $(this).textContent = dataFromLocalStorage
-  // })
 
-  //
-  var value = $(this)
-    .siblings('.description')
-    .val();
-  var time = $(this)
-    .parent()
-    .attr('id');
+  // Target the DOM with the .ready()method to run JavaScript as soon as the pages DOM is ready to manipulate.
 
-$(function () { 
-    var value = localStorage.getItem(time, value)
-    $('.description').text(value) 
-  //   .siblings('.description')
-  //   .val();
-  // var time = $(this)
-  //   .parent()
-  //   .attr('id');   
-  })
+  // Taking text input from <textarea> with $(this) method and defining it to var value & time; sets it into LocalStorage.
 
   $(document).ready(function () {
     $('.saveBtn').on('click', function () {
@@ -47,32 +24,22 @@ $(function () {
       console.log("rad");
     })
 
-    // Save!!! 
-    // var eventInput = $("#event");
+    // Lines 29-37 gets text input from each LocalStorage and passes it corresponding <textarea>.
 
-    // function saveToStorage() {
-
-    //   var eventText = eventInput[0].value;
-    //   localStorage.setItem("eventText", JSON.stringify(eventText));
-    // };
-
-    // function getFromStorage() {
-    //   var eventOutput = localStorage.getItem("eventText");
-    //   if (eventOutput !== null) {
-    //     ---document.getElementById('event').innerHTML = eventOutput;
-    //   } else {
-    //     return;
-    //   }
-    // };
-    // getFromStorage();
-
-    // $('#btnX').on("click", function (event) {
-    //   saveToStorage(event);
-    //   console.log("rad");
-    // }); 
-    //Save!!!
+    $('#hour-9 .description').val(localStorage.getItem('hour-9'));
+    $('#hour-10 .description').val(localStorage.getItem('hour-10'));
+    $('#hour-11 .description').val(localStorage.getItem('hour-11'));
+    $('#hour-12 .description').val(localStorage.getItem('hour-12'));
+    $('#hour-13 .description').val(localStorage.getItem('hour-13'));
+    $('#hour-14 .description').val(localStorage.getItem('hour-14'));
+    $('#hour-15 .description').val(localStorage.getItem('hour-15'));
+    $('#hour-16 .description').val(localStorage.getItem('hour-16'));
+    $('#hour-17 .description').val(localStorage.getItem('hour-17'));
 
 
+
+    // TODO: Add a listener for click events on the save button. This code should --Hint: assign eventListener to container block
+  
     // use the id in the containing time-block as a key to save the user input in --Hint: grab value from time block/id
 
     // local storage. HINT: What does `this` reference in the click listener --Option 1: store each timeBlock as seperate key(a,b,c,) value pair. --Option 2 store array,
@@ -96,13 +63,31 @@ $(function () {
 
 
     const dayJsObject = dayjs();
-    // console.log(dayJsObject.format("D"))
     $("#currentDay").html(dayJsObject.format("dddd YYYY-MM-DD HH:mm:ss"))
   });
 });
-// $('#btnX').on("click", function(event){
-//   console.log(event);
-//   saveToStorage();
-//   // getFromStorage();
-//     console.log("rad");
-// });
+
+// Save!!! 
+    // var eventInput = $("#event");
+
+    // function saveToStorage() {
+
+    //   var eventText = eventInput[0].value;
+    //   localStorage.setItem("eventText", JSON.stringify(eventText));
+    // };
+
+    // function getFromStorage() {
+    //   var eventOutput = localStorage.getItem("eventText");
+    //   if (eventOutput !== null) {
+    //     ---document.getElementById('event').innerHTML = eventOutput;
+    //   } else {
+    //     return;
+    //   }
+    // };
+    // getFromStorage();
+
+    // $('#btnX').on("click", function (event) {
+    //   saveToStorage(event);
+    //   console.log("rad");
+    // }); 
+    //Save!!!
